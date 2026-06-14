@@ -1,0 +1,24 @@
+{
+  "name": "festival-de-musica",
+  "version": "1.0.0",
+  "description": "Aprendiendo SASS y NPM",
+  "keywords": [
+    "SASS",
+    "NPM",
+    "Gulp"
+  ],
+  "license": "ISC",
+  "author": "Koridormi",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./src/scss:./build/css",
+    "dev": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.99.0"
+  }
+}

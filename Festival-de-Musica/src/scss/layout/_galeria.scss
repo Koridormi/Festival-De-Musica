@@ -1,0 +1,96 @@
+@use 'sass:color';
+@use '../base/variables' as var;
+@use '../utilities/mixins' as mix;
+
+.galeria-section h2 {
+    text-align: center;
+    color: var.$negro;
+    font-size: 4.3rem;
+    font-weight: bold;
+}
+.galeria-section__contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include mix.tablet {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include mix.desktop {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    gap: 2rem;
+    padding-bottom: 4rem;
+    list-style: none;
+    & img {
+        border-radius: 0.5rem;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+}
+.imagenDiv {
+    width: 75%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mix.desktop {
+        width: 60%;
+    }
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color: var.$negro, $alpha: 0.5);
+    display: grid;
+    place-items: center;
+    animation: fadeIn ease 0.5s;
+    &-fadeout {
+        animation: fadeOut ease 0.5s;
+    }
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 1rem;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.modal-boton {
+    margin-top: 3rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    font-size: 2rem;
+    background-color: var.$blanco;
+    color: var.$negro;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+    &:hover {
+        cursor: pointer;
+        background-color: color.adjust(var.$blanco, $lightness: -10%);
+    }
+    &:active {
+        transform: scale(1.2);
+    }
+}

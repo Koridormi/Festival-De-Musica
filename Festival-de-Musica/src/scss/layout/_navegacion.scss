@@ -1,0 +1,55 @@
+@use '../base/variables' as var;
+@use '../utilities/mixins' as mix;
+
+.header {
+    background-color: var.$verde;
+    @include mix.tablet {
+        &-fixed {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0.1rem 0.2rem 0.3rem #333;
+            z-index: 1;
+        }
+    }
+}
+.contenido-header {
+    @include mix.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.contenido-header h1 {
+    color: var.$blanco;
+    font-weight: bold;
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+    @include mix.tablet {
+        text-align: left;
+    }
+}
+.contenido-header__nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    column-gap: 1.5rem;
+    @include mix.tablet {
+        flex-direction: row;
+    }
+}
+.contenido-header__nav ul li a {
+    text-decoration: none;
+    color: var.$blanco;
+    font-size: 2rem;
+
+    &:hover,
+    &.header-active {
+        color: var.$amarillo;
+    }
+}

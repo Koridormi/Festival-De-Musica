@@ -1,0 +1,42 @@
+@use 'sass:color';
+@use '../base/variables' as var;
+@use '../utilities/mixins' as mix;
+
+.video-aside {
+    position: relative;
+    min-height: 50rem;
+    max-height: 70rem;
+    overflow: hidden;
+}
+.video-aside__overlay {
+    position: absolute;
+//  background: linear-gradient(270deg, rgba(var.$morado, 60%), rgba( darken(var.$morado, 20%), 90%)); // fuera de uso \\
+    background: linear-gradient(270deg, rgba(var.$morado, 60%), rgba( color.adjust(var.$morado, $lightness: -20%), 90%));
+    inset: 0;
+    color: var.$blanco;
+    display: flex;
+    align-items: center;
+}
+.overlay__contenido-video {
+    & h2 {
+        font-size: 7rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    & p {
+        background-color: var.$rosa;
+        border-radius: 1rem;
+        display: inline;
+        font-weight: bold;
+        font-size: 2.3rem;
+        border: 1rem var.$rosa solid;
+        margin: 0;
+    }
+}
+.video-aside video {
+    display: block;
+    width: auto;
+    @include mix.desktop {
+        width: 100%;
+    }
+}

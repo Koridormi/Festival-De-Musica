@@ -1,0 +1,86 @@
+@use 'sass:color';
+@use '../base/variables' as var;
+@use '../utilities/mixins' as mix;
+
+.lineUp-section {
+    background-color: var.$rosa;
+    padding-bottom: 10rem;
+    & h3 {
+        text-align: center;
+        color: var.$blanco;
+        font-size: 4rem;
+    }
+}
+.lineUp-section__dia {
+    text-align: center;
+    color: var.$blanco;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.lineUp-section__contenedor {
+    display: grid;
+    row-gap: 5rem;
+    @include mix.desktop {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3.5rem;
+    }
+}
+.lineUp-section__contenedor:nth-of-type(1) {
+    & .lineUp-section__contenido:nth-of-type(1) {
+        background-color: var.$amarillo;
+    }
+    & .lineUp-section__contenido:nth-of-type(2) {
+        background-color: var.$verde;
+    }
+}
+.lineUp-section__contenedor:nth-of-type(2) {
+    & .lineUp-section__contenido:nth-of-type(1) {
+        background-color: var.$verde;
+    }
+    & .lineUp-section__contenido:nth-of-type(2) {
+        background-color: var.$amarillo;
+    }
+}
+.lineUp-section__contenido {
+    border-radius: 0.5rem;
+}
+.lineUp-section__titulo {
+    text-align: center;
+    color: var.$negro;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.lineUp-section__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    & li {
+        font-weight: bold;
+        padding: 1.5rem 3rem;
+        span {
+            font-weight: lighter;
+        }
+    }
+}
+.bg-amarrilo {
+    & li:nth-of-type(1) {
+        background-color: color.adjust(var.$amarillo, $lightness: 10%);
+    }
+    & li:nth-of-type(3) {
+        background-color: color.adjust(var.$amarillo, $lightness: 10%);
+    }
+    & li:nth-of-type(5) {
+        background-color: color.adjust(var.$amarillo, $lightness: 10%);
+    }
+}
+.bg-verde {
+    & li:nth-of-type(1) {
+        background-color: color.adjust(var.$verde, $lightness: 10%);
+    }
+    & li:nth-of-type(3) {
+        background-color: color.adjust(var.$verde, $lightness: 10%);
+    }
+    & li:nth-of-type(5) {
+        background-color: color.adjust(var.$verde, $lightness: 10%);
+    }
+}

@@ -1,0 +1,91 @@
+@use 'sass:color';
+@use '../base/variables' as var;
+@use '../utilities/mixins' as mix;
+
+.boletos-section {
+    background-color: var.$verde;
+    padding-bottom: 10rem;
+    & h2 {
+        text-align: center;
+        color: var.$blanco;
+        font-size: 5rem;
+        font-weight: bold;
+    }
+}
+.boletos-section__contenedor {
+    display: grid;
+    @include mix.desktop {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+    }
+    & div h3 {
+        color: var.$blanco;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    & div:first-of-type .boletos-section__articulo {
+        p:nth-of-type(4) {
+            font-weight: bold;
+            text-align: center;
+            padding-left: 0;
+            color: var.$rosa;
+        }
+    }
+}
+.boletos-section__articulo {
+    background-color: var.$blanco;
+    border-radius: 1rem;
+    padding-bottom: 3rem;
+    & h4 {
+        text-align: center;
+        background-color: var.$rosa;
+        color: var.$blanco;
+        margin: 0;
+        padding: 2rem 0;
+        border-radius: 1rem 1rem 0 0;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    &:nth-of-type(1) {
+        grid-row: 2/3;
+    }
+    & > p {
+        margin: 0;
+        padding: 1.5rem 0 1.5rem 3rem;
+        border-bottom: 0.1rem #d4d4d4 solid;
+    }
+    & > p:last-of-type {
+        margin-bottom: 2rem;
+    }
+    & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0 13rem;
+        border: none;
+        background-color: var.$morado;
+        color: var.$blanco;
+        font-size: 2rem;
+        font-weight: bold;
+        border-radius: 1rem;
+        &:hover {
+            cursor: pointer;
+        }
+        &:active {
+            background-color: color.adjust(var.$morado, $lightness: -5%);
+        }
+    }
+}
+.boletos-section__contenido:nth-of-type(1) {
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+.boletos-section__contenido:nth-of-type(2) {
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+}

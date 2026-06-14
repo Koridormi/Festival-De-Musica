@@ -1,0 +1,46 @@
+@use './variables' as v;
+:root {
+    --primario: black;
+    --secundario: grey;
+    --fondo: white;
+}
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    box-sizing: border-box;
+}
+*,*:before, *:after {
+    box-sizing: inherit;
+}
+/* Globales */
+body {
+    font-size: 1.6rem; /* 1rem = 10px -- de manera natural es 1rem = 16px */
+    font-family: v.$fuentePrincipal;
+    line-height: 1.6; /* Mejora la legibilidad en móviles */
+    background-color: var(--fondo);
+    /* Footer Debajo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+/* Evita Scroll Horizontal */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+main {
+    flex: 1;
+}
+footer {
+    margin-top: auto;
+}
+/* Contenedor de seguridad para el contenido */
+.contenedor {
+    width: 95%; /* Ocupa casi todo el ancho en móviles */
+    max-width: 120rem; /* Se detiene en 1200px para pantallas grandes */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 0 2rem; /* Evita que el texto toque los bordes físicos */
+}
+.overflow-hidden {
+    overflow: hidden;
+}

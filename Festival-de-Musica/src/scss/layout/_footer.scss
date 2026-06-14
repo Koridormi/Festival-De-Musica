@@ -1,0 +1,7 @@
+@use '../base/variables' as var;
+
+.copyright-footer {
+    background-color: var.$rosa;
+    text-align: center;
+    color: var.$blanco;
+}
