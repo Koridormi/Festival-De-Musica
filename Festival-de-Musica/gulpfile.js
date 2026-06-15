@@ -1,11 +1,13 @@
 import gulpSass from 'gulp-sass';
-import * as dartSass from 'sass';
 import {src, dest, watch, series} from 'gulp';
+import * as dartSass from 'sass';
+import terser from 'gulp-terser';
 
 const sass = gulpSass(dartSass);
 
 export function js(done) {
     src('./src/js/app.js')
+        .pipe(terser())
         .pipe(dest('build/js'));
 
     done();
@@ -13,7 +15,9 @@ export function js(done) {
 
 export function css(done) {
     src('./src/scss/style.scss', {sourcemaps: true})
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({
+            style: 'compressed'
+        }).on('error', sass.logError))
         .pipe(dest('./build/css', {sourcemaps: '.'}));
 
     done();
